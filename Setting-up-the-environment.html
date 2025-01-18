@@ -7,95 +7,154 @@
     <title>Setting up the Environment</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
+            background-color: #f7f9fc;
             color: #333;
         }
 
         header {
-            background: #4a90e2;
+            background: #0056b3;
             color: white;
             padding: 20px;
             text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav {
+            background: #004494;
+            padding: 10px;
+            color: white;
+            text-align: right;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 20px auto;
             padding: 20px;
             background: white;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
         }
 
         h1 {
-            font-size: 24px;
-            color: #4a90e2;
+            font-size: 28px;
+            color: #0056b3;
+        }
+
+        h2 {
+            font-size: 22px;
+            color: #0056b3;
+            margin-top: 20px;
+        }
+
+        h3 {
+            font-size: 18px;
+            color: #004494;
+            margin-top: 20px;
         }
 
         pre {
-            background: #f9f9f9;
+            background: #f3f4f6;
             border: 1px solid #ddd;
             padding: 10px;
+            border-radius: 5px;
             overflow-x: auto;
-            font-family: monospace;
+            font-family: Consolas, monospace;
         }
 
         .note {
-            background: #fffbe6;
-            border-left: 4px solid #ffd700;
+            background: #fdf4d3;
+            border-left: 6px solid #ffd700;
             padding: 10px;
+            border-radius: 5px;
             margin-bottom: 20px;
         }
 
-        .footer {
+        a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
             text-align: center;
-            margin-top: 20px;
-            font-size: 12px;
+            margin-top: 40px;
+            font-size: 14px;
             color: #777;
+            padding: 10px;
+            background: #f3f4f6;
+        }
+
+        footer a {
+            color: #0056b3;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
     <header>
-        <h1>Natural Language Processing</h1>
+        Natural Language Processing
     </header>
 
+    <nav>
+        <a href="#">Course Schedule</a>
+        <a href="#">Search</a>
+    </nav>
+
     <div class="container">
-        <h2>Setting up the Environment</h2>
+        <h1>Setting up the Environment</h1>
         <p><strong>Installing conda and creating a new environment.</strong></p>
 
         <p>If you already have anaconda/miniconda/conda-forge, proceed to step 7.</p>
 
-        <h3>Step 1. Download conda installer.</h3>
+        <h2>Step 1. Download conda installer.</h2>
         <pre>wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh</pre>
 
         <div class="note">
-            <p><strong>NOTE:</strong> If this fails with "wget: command not found" install wget via "sudo apt install
-                wget" (Ubuntu) or "brew install wget" (MacOS). Then try to do step 1 again.</p>
+            <p><strong>NOTE:</strong> If this fails with "wget: command not found" install wget via
+                <code>sudo apt install wget</code> (Ubuntu) or <code>brew install wget</code> (MacOS). Then try to do
+                step 1 again.</p>
             <p><strong>NOTE:</strong> Alternatively, you can just follow the link above using your browser and download
                 the file this way.</p>
         </div>
 
-        <h3>Step 2. Install miniconda.</h3>
+        <h2>Step 2. Install miniconda.</h2>
         <pre>bash ~/miniconda.sh</pre>
 
-        <h3>Step 3. Read and accept all licenses.</h3>
-        <p><strong>Step 4.</strong> When asked where to install conda, just press enter to install it in the default
+        <h2>Step 3. Read and accept all licenses.</h2>
+        <p><strong>Step 4:</strong> When asked where to install conda, just press enter to install it in the default
             directory.</p>
         <p><strong>Step 5. IMPORTANT:</strong> Then it will ask you "Do you wish the installer to initialize
             Miniconda3". Type "yes" and press enter.</p>
         <p><strong>Step 6. IMPORTANT:</strong> Restart your terminal session - open and close your terminal window.</p>
 
         <div class="note">
-            <p><strong>NOTE:</strong> If you don't want conda to start base environment in every terminal you open, you
-                can execute <code>conda config --set auto_activate_base false</code>.</p>
+            <p><strong>NOTE:</strong> If you don't want conda to start the base environment in every terminal you open,
+                you can execute <code>conda config --set auto_activate_base false</code>.</p>
         </div>
 
-        <h3>Step 7. Create a new environment <code>nlp_class</code> with python 3.7.</h3>
+        <h2>Step 7. Create a new environment <code>nlp_class</code> with python 3.7.</h2>
         <pre>conda create --name nlp_class python=3.7</pre>
 
         <div class="note">
@@ -105,29 +164,29 @@
                     target="_blank">manually</a>.</p>
         </div>
 
-        <h3>Step 8. Activate this environment.</h3>
+        <h2>Step 8. Activate this environment.</h2>
         <pre>conda activate nlp_class</pre>
 
-        <h3>Step 9. Install required libraries.</h3>
+        <h2>Step 9. Install required libraries.</h2>
         <pre>python -m pip install ipywidgets torch transformers datasets scikit-learn ipywidgets</pre>
 
-        <h3>Step 10. Install a new kernel to a jupyter lab.</h3>
+        <h2>Step 10. Install a new kernel to Jupyter Lab.</h2>
         <pre>python -m ipykernel install --name nlp_class --user</pre>
 
         <div class="note">
             <p><strong>NOTE:</strong> If step 10 fails, ask Vlad for help.</p>
         </div>
 
-        <h3>Step 11. Launch jupyter lab.</h3>
+        <h2>Step 11. Launch Jupyter Lab.</h2>
         <pre>jupyter lab</pre>
 
         <p>This should open a browser tab with Jupyter Lab running.</p>
 
-        <h3>Step 12. Create a new notebook.</h3>
+        <h2>Step 12. Create a new notebook.</h2>
         <p>On the right, you will see a couple of available notebook environments under "Notebook" title. Select
             "nlp_class" and create a new notebook.</p>
 
-        <h3>Step 13. Make sure all imports work. To do this execute the following code:</h3>
+        <h2>Step 13. Make sure all imports work. To do this execute the following code:</h2>
         <pre>
 import torch
 import sklearn
@@ -144,7 +203,7 @@ import datasets
                 target="_blank">blogpost</a>.</p>
     </div>
 
-    <footer class="footer">
+    <footer>
         <p>UMass Lowell COMP 4420/5420</p>
     </footer>
 </body>
