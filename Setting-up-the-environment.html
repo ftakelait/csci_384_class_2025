@@ -146,7 +146,8 @@
         <div class="note">
             <p><strong>NOTE:</strong> If this fails with "wget: command not found" install wget via
                 <code>sudo apt install wget</code> (Ubuntu) or <code>brew install wget</code> (MacOS). Then try to do
-                step 1 again.</p>
+                step 1 again.
+            </p>
             <p><strong>NOTE:</strong> Alternatively, you can just follow the link above using your browser and download
                 the file this way.</p>
         </div>
@@ -167,7 +168,7 @@
         </div>
 
         <h2>Step 7. Create a new environment <code>nlp_class</code> with python 3.7.</h2>
-        <pre>conda create --name nlp_class python=3.7</pre>
+        <pre>conda create --name ai_class python=3.12.8</pre>
 
         <div class="note">
             <p><strong>NOTE:</strong> If you have <code>conda not found</code> error, it might mean you skipped step 5
@@ -177,16 +178,16 @@
         </div>
 
         <h2>Step 8. Activate this environment.</h2>
-        <pre>conda activate nlp_class</pre>
+        <pre>conda activate ai_class</pre>
 
         <h2>Step 9. Install required libraries.</h2>
-        <pre>python -m pip install ipywidgets torch transformers datasets scikit-learn ipywidgets</pre>
+        <pre>python -m pip install jupyterlab datasets ipywidgets</pre>
 
         <h2>Step 10. Install a new kernel to Jupyter Lab.</h2>
-        <pre>python -m ipykernel install --name nlp_class --user</pre>
+        <pre>python -m ipykernel install --name ai_class --user</pre>
 
         <div class="note">
-            <p><strong>NOTE:</strong> If step 10 fails, ask Vlad for help.</p>
+            <p><strong>NOTE:</strong> If step 10 fails, ask Fouzi for help.</p>
         </div>
 
         <h2>Step 11. Launch Jupyter Lab.</h2>
@@ -196,18 +197,13 @@
 
         <h2>Step 12. Create a new notebook.</h2>
         <p>On the right, you will see a couple of available notebook environments under "Notebook" title. Select
-            "nlp_class" and create a new notebook.</p>
+            "ai_class" and create a new notebook.</p>
 
         <h2>Step 13. Make sure all imports work. To do this execute the following code:</h2>
-        <pre class="python-code">
-import torch
-import sklearn
-import transformers
-import datasets
-        </pre>
+        <pre class="python-code">import datasets</pre>
 
         <div class="note">
-            <p><strong>NOTE:</strong> If this fails, ask Vlad for help.</p>
+            <p><strong>NOTE:</strong> If this fails, ask Fouzi for help.</p>
         </div>
 
         <p>Now you should be good to go. If you are wondering why we need conda and environments, you can read this <a
@@ -216,7 +212,7 @@ import datasets
     </div>
 
     <footer>
-        <p>UMass Lowell COMP 4420/5420</p>
+        <p>University of North Dakota CSCI 384</p>
     </footer>
 </body>
 
