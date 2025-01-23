@@ -335,27 +335,71 @@ plt.show()</pre>
                     <ol>
                         <li><strong>Set up the Pong environment:</strong>
                             <pre class="python-code">
-import pygame
-import sys
+import pygame  # Imports the Pygame library, which provides functionalities to create games/graphics in Python
+import sys     # Imports the sys library to handle system-specific parameters and functions (e.g., exiting the game)
 
-pygame.init()
+pygame.init()  # Initializes all imported Pygame modules
 
+# -----------------------
 # Screen dimensions
+# -----------------------
 width, height = 800, 400
-screen = pygame.display.set_mode((width, height))
-pygame.display.set_caption("Pong AI")
+# width = 800  -> The horizontal size of the game window in pixels
+# height = 400 -> The vertical size of the game window in pixels
+# Example: If you want a smaller window, you could do: width, height = 600, 300
 
+screen = pygame.display.set_mode((width, height))
+# Creates the display window (or screen) where all game visuals are rendered
+# Example: pygame.display.set_mode((1024, 768)) to create a 1024x768 window
+
+pygame.display.set_caption("Pong AI")
+# Sets the window title to "Pong AI"
+# This is what you'll see at the top of the window or in the taskbar
+
+# -----------------------
 # Define game objects (paddles, ball)
+# -----------------------
 paddle_width, paddle_height = 10, 60
-player_x, player_y = 50, height//2 - paddle_height//2
-ai_x, ai_y = width - 50, height//2 - paddle_height//2
-ball_x, ball_y = width//2, height//2
+# paddle_width = 10  -> The thickness of the paddle
+# paddle_height = 60 -> The height of the paddle
+# Example: Make larger paddles with: paddle_width, paddle_height = 20, 100
+
+player_x, player_y = 50, height // 2 - paddle_height // 2
+# Positions the player paddle near the left side of the screen
+# player_x = 50 means the paddle is placed 50 pixels from the left edge
+# player_y = height // 2 - paddle_height // 2 places the paddle vertically centered
+
+ai_x, ai_y = width - 50, height // 2 - paddle_height // 2
+# Positions the AI paddle near the right side of the screen
+# ai_x = width - 50 means the paddle is placed 50 pixels from the right edge
+# ai_y is also centered vertically (same math as the player paddle)
+
+ball_x, ball_y = width // 2, height // 2
+# Places the ball at the center of the screen
+# If you want the ball to start near the top-left corner, you could do: ball_x, ball_y = 50, 50
+
 ball_speed_x, ball_speed_y = 4, 4
+# Horizontal and vertical speed of the ball
+# ball_speed_x = 4 (moves the ball 4 pixels to the right each frame)
+# ball_speed_y = 4 (moves the ball 4 pixels down each frame)
+# Example: If you want a faster ball, you might set ball_speed_x, ball_speed_y = 8, 8
+
 player_speed = 0
+# Vertical speed for the player paddle
+# Initially 0, meaning the paddle won't move until you change this value during gameplay (e.g., when a key is pressed)
+
 ai_speed = 4
+# Vertical speed for the AI paddle
+# Higher values make the AI paddle move up or down faster
 
 clock = pygame.time.Clock()
+# Creates a Clock object used to track and control the game's frame rate
+# Example usage:
+#   clock.tick(60) inside your main loop -> tries to cap the game at 60 frames per second
+
 running = True
+# A Boolean flag to keep the main game loop running
+# When set to False, the game will exit
                             </pre>
                         </li>
                         <li><strong>Implement Player Movement:</strong> Capture keyboard events to move the
