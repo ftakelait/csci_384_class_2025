@@ -375,21 +375,22 @@ def minimax(state, depth, maximizing_player):
 
         <h3>17.4 Visualizing Game States</h3>
         <p>Use <code>matplotlib</code> to visualize game states or AI decisions:</p>
-        <pre class="python-code">import matplotlib.pyplot as plt  
-# Imports the plotting library "matplotlib" and names it "plt"
-# This library is commonly used for creating a variety of static, animated, and interactive visualizations in Python.
+        <pre class="python-code">
+import matplotlib.pyplot as plt  
+# Imports the plotting library "matplotlib" under the alias "plt".
+# Commonly used for creating static, animated, or interactive visualizations in Python.
 
 game_states = [1, 2, 3, 4, 5]
-# A list representing some discrete game states or levels.
-# Example: These could be rounds in a game or steps in a simulation.
+# A list representing discrete stages, levels, or states in a game or simulation.
+# Example: These might represent rounds in a game, or different stages of an AI algorithm.
 
 performance = [10, 20, 15, 25, 30]
-# A list representing the AI's performance metrics (e.g., scores) at each corresponding game state.
-# performance[0] = 10 for game_states[0] = 1, performance[1] = 20 for game_states[1] = 2, etc.
+# A list representing performance metrics (e.g., scores, time taken, or other measures).
+# The first value (10) corresponds to game state 1, the second (20) to game state 2, etc.
 
 plt.plot(game_states, performance)
 # Creates a line plot with 'game_states' on the x-axis and 'performance' on the y-axis.
-# plt.plot(x_values, y_values) is the typical syntax.
+# The default style is a straight line connecting each data point.
 
 plt.title("AI Performance Over States")
 # Sets the title of the plot to "AI Performance Over States".
@@ -401,7 +402,9 @@ plt.ylabel("Performance")
 # Labels the y-axis as "Performance".
 
 plt.show()
-# Renders the current figure/plot and displays it in a separate window or inline (depending on your environment).</pre>
+# Renders and displays the figure in a new window or inline, depending on the environment.
+
+        </pre>
 
         <h2>18. Advanced Tips for AI Game Development</h2>
         <ul>
