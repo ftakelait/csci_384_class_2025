@@ -2,92 +2,52 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
     <title>Python Jupyter Lab Extended Tutorial</title>
     <style>
         body {
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
+            margin: 20px;
             line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f7f9fc;
-            color: #333;
         }
 
         header {
-            background: #0056b3;
-            color: white;
-            padding: 20px;
-            text-align: center;
-            font-size: 24px;
+            font-size: 1.5em;
             font-weight: bold;
+            margin-bottom: 10px;
         }
 
         .container {
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
-            background: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
+            max-width: 800px;
         }
 
-        h1,
-        h2,
-        h3 {
-            color: #0056b3;
-        }
-
-        pre {
-            background: #1e1e1e;
-            color: #d4d4d4;
-            padding: 15px;
-            border-radius: 5px;
-            overflow-x: auto;
-            font-family: Consolas, "Courier New", monospace;
-            font-size: 14px;
-        }
-
-        code {
-            color: #c586c0;
-            background: #1e1e1e;
-            padding: 2px 4px;
-            border-radius: 4px;
+        .python-code {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ccc;
+            font-family: "Courier New", Courier, monospace;
         }
 
         .note {
-            background: #fdf4d3;
-            border-left: 6px solid #ffd700;
+            background-color: #e7f3fe;
+            border-left: 4px solid #2196F3;
             padding: 10px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-        }
-
-        a {
-            color: #0056b3;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
+            margin-top: 20px;
         }
 
         footer {
-            text-align: center;
             margin-top: 40px;
-            font-size: 14px;
-            color: #777;
-            padding: 10px;
-            background: #f3f4f6;
+            font-size: 0.9em;
+            color: #666;
         }
 
-        footer a {
-            color: #0056b3;
+        details {
+            margin: 10px 0;
         }
 
-        footer a:hover {
-            text-decoration: underline;
+        details summary {
+            cursor: pointer;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -96,6 +56,42 @@
     <header>
         Python Jupyter Lab Extended Tutorial
     </header>
+
+    <!-- ********************************************
+         ADDITIONAL INSTRUCTIONS ON HOW TO USE JUPYTER LAB
+         ******************************************** -->
+    <section>
+        <h2>How to Write and Execute Python Code in Jupyter Lab</h2>
+        <p>
+            Jupyter Lab is an interactive environment that allows you to write and run Python (and other) code in
+            separate cells. Here is a simple guide to get started:
+        </p>
+        <ol>
+            <li><strong>Launch Jupyter Lab:</strong> From a terminal (or Anaconda prompt), run:
+                <pre>jupyter lab</pre>
+                This will open Jupyter Lab in your browser.
+            </li>
+            <li><strong>Create a New Notebook:</strong> In the Jupyter Lab interface, go to <em>File &gt; New &gt;
+                    Notebook</em>. Choose <em>Python 3</em> (or your preferred environment) as the kernel.
+            </li>
+            <li><strong>Write Code in a Cell:</strong> Click inside a cell and type your Python code. For example:
+                <pre>print("Hello, Jupyter Lab!")</pre>
+            </li>
+            <li><strong>Run a Cell:</strong> Press <code>Shift + Enter</code> to run the cell. Jupyter Lab will display
+                the output right below the cell.
+            </li>
+            <li><strong>Add New Cells:</strong> Use the toolbar buttons or keyboard shortcuts (<code>Esc + A</code> to
+                add a cell above, <code>Esc + B</code> to add a cell below) to insert more cells.
+            </li>
+            <li><strong>Save Your Notebook:</strong> Use <code>Ctrl + S</code> (Command + S on macOS) or click the
+                <em>Save</em> icon.
+            </li>
+        </ol>
+        <p>
+            Once you are comfortable with these basics, you can start exploring more advanced features such as
+            integrated terminals, extension manager, and interactive visualizations.
+        </p>
+    </section>
 
     <div class="container">
         <h1>Step 14: Transitioning to Jupyter Lab</h1>
@@ -230,10 +226,209 @@ plt.show()</pre>
 
         <h2>19. Practice Exercises</h2>
         <ol>
-            <li>Build a basic Pong game using <code>pygame</code> and implement AI for one of the paddles.</li>
-            <li>Visualize the decision tree of a minimax algorithm using <code>networkx</code>.</li>
-            <li>Create a learning agent for a maze-solving game using Q-learning.</li>
+            <li>
+                Build a basic Pong game using <code>pygame</code> and implement AI for one of the paddles.
+                <details>
+                    <summary>Show/Hide Solution (Step-by-Step)</summary>
+                    <ol>
+                        <li><strong>Set up the Pong environment:</strong>
+                            <pre class="python-code">
+import pygame
+import sys
+
+pygame.init()
+
+# Screen dimensions
+width, height = 800, 400
+screen = pygame.display.set_mode((width, height))
+pygame.display.set_caption("Pong AI")
+
+# Define game objects (paddles, ball)
+paddle_width, paddle_height = 10, 60
+player_x, player_y = 50, height//2 - paddle_height//2
+ai_x, ai_y = width - 50, height//2 - paddle_height//2
+ball_x, ball_y = width//2, height//2
+ball_speed_x, ball_speed_y = 4, 4
+player_speed = 0
+ai_speed = 4
+
+clock = pygame.time.Clock()
+running = True
+                            </pre>
+                        </li>
+                        <li><strong>Implement Player Movement:</strong> Capture keyboard events to move the
+                            human-controlled paddle up/down.</li>
+                        <li><strong>Add AI Logic for Opponent Paddle:</strong>
+                            <ul>
+                                <li>Track the ball's <code>y</code> position.</li>
+                                <li>Move the AI paddle up or down to match the ball's <code>y</code> position.</li>
+                            </ul>
+                            <pre class="python-code">
+# AI tries to follow the ball's y-coordinate
+if ai_y + paddle_height//2 < ball_y:
+    ai_y += ai_speed
+elif ai_y + paddle_height//2 > ball_y:
+    ai_y -= ai_speed
+                            </pre>
+                        </li>
+                        <li><strong>Handle Ball Movement and Collisions:</strong> Bounce the ball off walls and paddles.
+                        </li>
+                        <li><strong>Run the Game Loop:</strong> Keep updating positions, checking for collisions, and
+                            redrawing all elements until the user quits.</li>
+                    </ol>
+                    <p>
+                        By adjusting <code>ai_speed</code> and adding more complex tracking (e.g., predictive AI),
+                        you can make the AI more challenging.
+                    </p>
+                </details>
+            </li>
+            <li>
+                Visualize the decision tree of a minimax algorithm using <code>networkx</code>.
+                <details>
+                    <summary>Show/Hide Solution (Step-by-Step)</summary>
+                    <ol>
+                        <li><strong>Install NetworkX:</strong>
+                            <pre>!pip install networkx</pre>
+                        </li>
+                        <li><strong>Generate the Decision Tree:</strong> During the minimax recursion, record
+                            each node (game state) and its children in a structure (like a dictionary).</li>
+                        <li><strong>Create a Directed Graph:</strong>
+                            <pre class="python-code">
+import networkx as nx
+import matplotlib.pyplot as plt
+
+def build_tree(state, depth, graph, parent=None):
+    # Example function that builds a tree recursively
+    if depth == 0:
+        return
+    
+    # Add this state as a node in the graph
+    graph.add_node(state)
+    if parent:
+        graph.add_edge(parent, state)
+    
+    # For each child state, recursively build the tree
+    child_states = get_children(state)
+    for child in child_states:
+        build_tree(child, depth-1, graph, parent=state)
+
+# Example usage:
+G = nx.DiGraph()
+initial_state = "Root"
+build_tree(initial_state, 3, G)
+nx.draw(G, with_labels=True)
+plt.show()
+                            </pre>
+                        </li>
+                        <li><strong>Draw the Graph:</strong> Use <code>nx.draw()</code> or other layout functions to
+                            visualize the resulting tree.</li>
+                    </ol>
+                    <p>
+                        This approach helps you understand how the minimax algorithm explores different game states.
+                    </p>
+                </details>
+            </li>
+            <li>
+                Create a learning agent for a maze-solving game using Q-learning.
+                <details>
+                    <summary>Show/Hide Solution (Step-by-Step)</summary>
+                    <ol>
+                        <li><strong>Set Up the Maze Environment:</strong> Represent the maze as a grid. Define actions
+                            (up, down, left, right) and rewards (e.g., +1 for reaching the goal, -1 for hitting a wall).
+                        </li>
+                        <li><strong>Initialize Q-Table:</strong>
+                            <pre class="python-code">
+import numpy as np
+
+num_states = ...  # e.g., width * height of maze
+num_actions = 4   # up, down, left, right
+Q = np.zeros((num_states, num_actions))
+                            </pre>
+                        </li>
+                        <li><strong>Choose Hyperparameters:</strong> e.g., <code>learning_rate</code>,
+                            <code>discount_factor</code>, and <code>epsilon</code> for exploration.</li>
+                        <li><strong>Update Rules:</strong> On each step, update Q-values using the Bellman equation:
+                            <pre class="python-code">
+Q[state, action] = Q[state, action] + learning_rate * (
+    reward + discount_factor * np.max(Q[new_state, :]) - Q[state, action]
+)
+                            </pre>
+                        </li>
+                        <li><strong>Train the Agent:</strong> Run multiple episodes of the maze solver, updating the
+                            Q-table until convergence.</li>
+                        <li><strong>Test the Agent:</strong> After training, let the agent navigate the maze without
+                            exploration (greedy action selection).
+                        </li>
+                    </ol>
+                    <p>
+                        Over time, the agent learns an optimal policy to solve the maze. Adjust hyperparameters and
+                        maze complexity to fine-tune performance.
+                    </p>
+                </details>
+            </li>
         </ol>
+
+        <!-- ********************************************
+             NEW SECTION: BASIC MACHINE LEARNING EXAMPLE
+             ******************************************** -->
+        <h2>20. Basic Machine Learning Example with scikit-learn</h2>
+        <p>This example demonstrates how to load a dataset using <code>scikit-learn</code>, split the data, train a
+            logistic regression model, and evaluate its performance. Comments are provided for clarity.</p>
+        <pre class="python-code">
+# ---------------------------------------
+# Import necessary libraries and modules
+# ---------------------------------------
+import numpy as np  # NumPy for numerical computing
+from sklearn.datasets import load_iris  # Load sample iris dataset
+from sklearn.model_selection import train_test_split  # For splitting data into train/test sets
+from sklearn.linear_model import LogisticRegression  # Our ML model for classification
+from sklearn.metrics import accuracy_score  # Evaluate how well the model performs
+
+# -----------------------------------------------------
+# 1. Load the iris dataset
+#    - 'load_iris()' returns an object with both data and target
+# -----------------------------------------------------
+iris = load_iris()  # iris is a Bunch object containing data and target
+X = iris.data       # X holds the features (sepal length, sepal width, etc.)
+y = iris.target     # y holds the labels (types of iris flowers)
+
+# ---------------------------------------------------------------------
+# 2. Split the dataset into training and test sets
+#    - 'train_test_split' divides data into two subsets
+#    - 'test_size=0.2' reserves 20% of data for testing
+#    - 'random_state=42' ensures reproducible shuffling
+# ---------------------------------------------------------------------
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# ----------------------------------------------------
+# 3. Initialize the Logistic Regression model
+#    - 'max_iter=200' allows more iterations for solver
+# ----------------------------------------------------
+model = LogisticRegression(max_iter=200)
+
+# -----------------------------------------------
+# 4. Train (fit) the model on the training data
+#    - 'fit' uses X_train and y_train to learn
+# -----------------------------------------------
+model.fit(X_train, y_train)
+
+# ---------------------------------------------
+# 5. Predict on the test set
+#    - 'predict' generates labels on unseen data
+# ---------------------------------------------
+y_pred = model.predict(X_test)
+
+# -----------------------------------------------
+# 6. Calculate the accuracy of the model
+#    - 'accuracy_score' compares predictions to true labels
+# -----------------------------------------------
+accuracy = accuracy_score(y_test, y_pred)
+
+# -------------------------
+# 7. Print the test accuracy
+# -------------------------
+print("Test Accuracy:", accuracy)
+        </pre>
 
         <div class="note">
             <p><strong>Tip:</strong> Explore the official <a href="https://jupyterlab.readthedocs.io/"
