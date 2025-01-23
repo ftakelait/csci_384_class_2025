@@ -2,93 +2,132 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <title>Python Jupyter Lab Extended Tutorial</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting up the Environment</title>
     <style>
-        /* Improved CSS Styling */
-
-        /* Overall body styling */
         body {
-            font-family: 'Open Sans', sans-serif;
-            background: #f4f7f9;
-            /* A light grayish background */
-            color: #333;
-            /* Dark gray text for better readability */
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
+            background-color: #f7f9fc;
+            color: #333;
         }
 
-        /* Header styling */
         header {
-            font-size: 1.8em;
-            font-weight: bold;
-            color: #ffffff;
-            background: #004466;
-            /* Darker background color for contrast */
+            background: #0056b3;
+            color: white;
             padding: 20px;
-            margin-bottom: 20px;
             text-align: center;
+            font-size: 24px;
+            font-weight: bold;
         }
 
-        /* Main container to hold content with some box shadow */
+        nav {
+            background: #004494;
+            padding: 10px;
+            color: white;
+            text-align: right;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
         .container {
             max-width: 900px;
-            background: #ffffff;
-            /* White background for the container */
-            margin: 0 auto;
+            margin: 20px auto;
             padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
         }
 
-        /* Code blocks styling */
-        .python-code {
-            background-color: #2b2b2b;
-            /* Dark background for code blocks */
-            color: #f8f8f2;
-            /* Light text for contrast */
-            padding: 15px;
-            border-radius: 4px;
-            font-family: "Courier New", Courier, monospace;
-            overflow-x: auto;
-            margin-bottom: 1em;
-            line-height: 1.4;
+        h1 {
+            font-size: 28px;
+            color: #0056b3;
         }
 
-        /* Inline <pre> tag general styling */
-        pre {
-            background-color: #f0f0f0;
-            /* Light gray background for standard pre tags */
-            padding: 10px;
-            border-radius: 3px;
-            line-height: 1.4;
-            overflow-x: auto;
-        }
-
-        /* Note box styling */
-        .note {
-            background-color: #fafbd0;
-            /* A soft yellow background for notes */
-            border-left: 4px solid #ffcc00;
-            padding: 10px;
+        h2 {
+            font-size: 22px;
+            color: #0056b3;
             margin-top: 20px;
+        }
+
+        h3 {
+            font-size: 18px;
+            color: #004494;
+            margin-top: 20px;
+        }
+
+        pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 14px;
+        }
+
+        code {
+            color: #c586c0;
+            background: #1e1e1e;
+            padding: 2px 4px;
             border-radius: 4px;
         }
 
-        /* Footer styling */
+        .python-code {
+            color: #dcdcaa;
+        }
+
+        .note {
+            background: #fdf4d3;
+            border-left: 6px solid #ffd700;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
         footer {
             text-align: center;
             margin-top: 40px;
-            font-size: 0.9em;
-            color: #666666;
-            padding: 20px;
+            font-size: 14px;
+            color: #777;
+            padding: 10px;
+            background: #f3f4f6;
         }
 
-        /* Details/summary styling for collapsible solutions */
+        footer a {
+            color: #0056b3;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Additional styling for details (collapsible solutions) */
         details {
             margin: 10px 0;
-            background-color: #f9f9f9;
+            background: #f9f9f9;
             border: 1px solid #ddd;
-            border-radius: 4px;
+            border-radius: 5px;
             padding: 5px;
         }
 
@@ -106,47 +145,58 @@
 
 <body>
     <header>
-        Python Jupyter Lab Extended Tutorial
+        CSCI 384 - Artificial Intelligence
     </header>
 
-    <!-- ********************************************
-         ADDITIONAL INSTRUCTIONS ON HOW TO USE JUPYTER LAB
-         ******************************************** -->
-    <section>
-        <h2>How to Write and Execute Python Code in Jupyter Lab</h2>
-        <p>
-            Jupyter Lab is an interactive environment that allows you to write and run Python (and other) code in
-            separate cells. Here is a simple guide to get started:
-        </p>
-        <ol>
-            <li><strong>Launch Jupyter Lab:</strong> From a terminal (or Anaconda prompt), run:
-                <pre>jupyter lab</pre>
-                This will open Jupyter Lab in your browser.
-            </li>
-            <li><strong>Create a New Notebook:</strong> In the Jupyter Lab interface, go to <em>File &gt; New &gt;
-                    Notebook</em>. Choose <em>Python 3</em> (or your preferred environment) as the kernel.
-            </li>
-            <li><strong>Write Code in a Cell:</strong> Click inside a cell and type your Python code. For example:
-                <pre>print("Hello, Jupyter Lab!")</pre>
-            </li>
-            <li><strong>Run a Cell:</strong> Press <code>Shift + Enter</code> to run the cell. Jupyter Lab will display
-                the output right below the cell.
-            </li>
-            <li><strong>Add New Cells:</strong> Use the toolbar buttons or keyboard shortcuts (<code>Esc + A</code> to
-                add a cell above, <code>Esc + B</code> to add a cell below) to insert more cells.
-            </li>
-            <li><strong>Save Your Notebook:</strong> Use <code>Ctrl + S</code> (Command + S on macOS) or click the
-                <em>Save</em> icon.
-            </li>
-        </ol>
-        <p>
-            Once you are comfortable with these basics, you can start exploring more advanced features such as
-            integrated terminals, extension manager, and interactive visualizations.
-        </p>
-    </section>
+    <nav>
+        <a href="#">Course Schedule</a>
+        <a href="#">Search</a>
+        <a href="python_tutorial.html">Python Tutorial</a>
+    </nav>
 
     <div class="container">
-        <h1>Step 14: Transitioning to Jupyter Lab</h1>
+        <h1>Python Jupyter Lab Extended Tutorial</h1>
+
+        <!-- ********************************************
+             ADDITIONAL INSTRUCTIONS ON HOW TO USE JUPYTER LAB
+             ******************************************** -->
+        <section>
+            <h2>How to Write and Execute Python Code in Jupyter Lab</h2>
+            <p>
+                Jupyter Lab is an interactive environment that allows you to write and run Python (and other) code in
+                separate cells. Here is a simple guide to get started:
+            </p>
+            <ol>
+                <li><strong>Launch Jupyter Lab:</strong> From a terminal (or Anaconda prompt), run:
+                    <pre>jupyter lab</pre>
+                    This will open Jupyter Lab in your browser.
+                </li>
+                <li><strong>Create a New Notebook:</strong> In the Jupyter Lab interface, go to
+                    <em>File &gt; New &gt; Notebook</em>.
+                    Choose <em>Python 3</em> (or your preferred environment) as the kernel.
+                </li>
+                <li><strong>Write Code in a Cell:</strong> Click inside a cell and type your Python code. For example:
+                    <pre>print("Hello, Jupyter Lab!")</pre>
+                </li>
+                <li><strong>Run a Cell:</strong> Press <code>Shift + Enter</code> to run the cell. Jupyter Lab will
+                    display
+                    the output right below the cell.
+                </li>
+                <li><strong>Add New Cells:</strong> Use the toolbar buttons or keyboard shortcuts (<code>Esc + A</code>
+                    to
+                    add a cell above, <code>Esc + B</code> to add a cell below) to insert more cells.
+                </li>
+                <li><strong>Save Your Notebook:</strong> Use <code>Ctrl + S</code> (Command + S on macOS) or click the
+                    <em>Save</em> icon.
+                </li>
+            </ol>
+            <p>
+                Once you are comfortable with these basics, you can start exploring more advanced features such as
+                integrated terminals, extension manager, and interactive visualizations.
+            </p>
+        </section>
+
+        <h2>Step 14: Transitioning to Jupyter Lab</h2>
         <p>Congratulations! Your Jupyter Lab is now up and running. In this extended tutorial, we will dive deeper into
             its features, provide advanced tips, and explore how to use Jupyter Lab effectively for developing AI games.
         </p>
@@ -398,7 +448,8 @@ Q = np.zeros((num_states, num_actions))
                             </pre>
                         </li>
                         <li><strong>Choose Hyperparameters:</strong> e.g., <code>learning_rate</code>,
-                            <code>discount_factor</code>, and <code>epsilon</code> for exploration.</li>
+                            <code>discount_factor</code>, and <code>epsilon</code> for exploration.
+                        </li>
                         <li><strong>Update Rules:</strong> On each step, update Q-values using the Bellman equation:
                             <pre class="python-code">
 Q[state, action] = Q[state, action] + learning_rate * (
@@ -409,8 +460,7 @@ Q[state, action] = Q[state, action] + learning_rate * (
                         <li><strong>Train the Agent:</strong> Run multiple episodes of the maze solver, updating the
                             Q-table until convergence.</li>
                         <li><strong>Test the Agent:</strong> After training, let the agent navigate the maze without
-                            exploration (greedy action selection).
-                        </li>
+                            exploration (greedy action selection).</li>
                     </ol>
                     <p>
                         Over time, the agent learns an optimal policy to solve the maze. Adjust hyperparameters and
