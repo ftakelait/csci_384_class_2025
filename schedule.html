@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Schedule - CSCI 384</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc;
+            color: #333;
+        }
+
+        header {
+            background: #0056b3;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav {
+            background: #004494;
+            padding: 10px;
+            color: white;
+            text-align: right;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #0056b3;
+        }
+
+        h2 {
+            font-size: 22px;
+            color: #0056b3;
+            margin-top: 20px;
+        }
+
+        h3 {
+            font-size: 18px;
+            color: #004494;
+            margin-top: 20px;
+        }
+
+        p,
+        li {
+            font-size: 16px;
+        }
+
+        .note {
+            background: #fdf4d3;
+            border-left: 6px solid #ffd700;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #777;
+            padding: 10px;
+            background: #f3f4f6;
+        }
+
+        footer a {
+            color: #0056b3;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        CSCI 384 - Artificial Intelligence
+    </header>
+
+    <nav>
+        <a href="course_schedule.html">Course Schedule</a>
+        <a href="Setting-up-the-environment.html">Setting Up JupyterLab</a>
+        <a href="python_tutorial.html">Python Tutorial</a>
+    </nav>
+
+    <div class="container">
+        <h1>Course Schedule and Grading</h1>
+        <p><strong>Sci 384. Artificial Intelligence</strong></p>
+        <ul>
+            <li><strong>Term:</strong> Spring, 2025</li>
+            <li><strong>Class Hours:</strong> 10:10 – 11:00 AM, MWF</li>
+            <li><strong>Room:</strong> CEC 205</li>
+        </ul>
+
+        <h2>Instructor Details</h2>
+        <p><strong>Instructor:</strong> Dr. M. Eunjin Kim<br>
+            <strong>E-mail:</strong> ejkim@cs.und.edu<br>
+            <strong>Office:</strong> 366P Upson II<br>
+            <strong>Phone:</strong> (701) 777.3338
+        </p>
+        <p><strong>(Virtual) Office Hours:</strong> 1:00 – 3:00 pm (Mon. &amp; Wed.)<br>
+            via Zoom: <a href="https://und.zoom.us/j/8719470008"
+                target="_blank">https://und.zoom.us/j/8719470008</a><br>
+            Please email me in advance to schedule a Zoom meeting.</p>
+
+        <h2>Prerequisites</h2>
+        <p><strong>CSci-242:</strong> Algorithms and Data Structures</p>
+
+        <h2>Required Textbooks</h2>
+        <ul>
+            <li>"Artificial Intelligence: A Modern Approach," 4th Ed. (2020).<br>
+                S. Russell and P. Norvig, Prentice-Hall.</li>
+            <li>"Introduction to Artificial Intelligence," 2nd Ed. (2017).<br>
+                Wolfgang Ertel, Springer.</li>
+        </ul>
+
+        <h2>Recommended Books</h2>
+        <ul>
+            <li><strong>Artificial Intelligence: Foundations of Computational Agents, 3rd ed.</strong><br>
+                David L. Poole and Alan K. Mackworth, Cambridge, 2023.</li>
+            <li><strong>Artificial Intelligence.</strong><br>
+                Charu C. Aggarwal, Springer, 2021.</li>
+        </ul>
+
+        <h2>Grading Policy</h2>
+        <p>For any answer, grading is based on correctness, clarity, and observation of instructions.</p>
+        <ul>
+            <li>Midterm: 20 - 25%</li>
+            <li>Final Exam: 20 - 25%</li>
+            <li>Assignments: 35%</li>
+            <li>Projects: 20%</li>
+        </ul>
+        <p>Between the two exams, the higher score will count as 25% and the lower as 20% towards your final grade.</p>
+
+        <h3>Detailed Final Grade Calculation</h3>
+        <p>
+            Let:
+        <ul>
+            <li>Midterm total score = y1 &nbsp;&nbsp; Your Midterm score = x1</li>
+            <li>Final Exam total score = y2 &nbsp;&nbsp; Your Final Exam score = x2</li>
+            <li>HW (Assignments) total score = y3 &nbsp;&nbsp; Your Total HW score = x3</li>
+            <li>Project total score = y4 &nbsp;&nbsp; Your Project score = x4</li>
+        </ul>
+        The weighted formula for your final grade is:
+        </p>
+        <pre>
+Your Total of Final Grade = (x1 / y1) * 200 + (x2 / y2) * 250 + (x3 / y3) * 350 + (x4 / y4) * 200
+        </pre>
+        <p>Letter grades are assigned as follows:</p>
+        <ul>
+            <li>A ∈ [900, 1000]</li>
+            <li>B ∈ [800, 900)</li>
+            <li>C ∈ [700, 800)</li>
+            <li>D ∈ [600, 700)</li>
+            <li>F ∈ [0, 600)</li>
+        </ul>
+        <p><strong>Note:</strong> The Final Exam will be a take-home exam.</p>
+    </div>
+
+    <footer>
+        <p>University of North Dakota CSCI 384</p>
+    </footer>
+</body>
+
+</html>
