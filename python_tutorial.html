@@ -5,49 +5,101 @@
     <meta charset="UTF-8" />
     <title>Python Jupyter Lab Extended Tutorial</title>
     <style>
+        /* Improved CSS Styling */
+
+        /* Overall body styling */
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            line-height: 1.6;
+            font-family: 'Open Sans', sans-serif;
+            background: #f4f7f9;
+            /* A light grayish background */
+            color: #333;
+            /* Dark gray text for better readability */
+            margin: 0;
+            padding: 0;
         }
 
+        /* Header styling */
         header {
-            font-size: 1.5em;
+            font-size: 1.8em;
             font-weight: bold;
-            margin-bottom: 10px;
+            color: #ffffff;
+            background: #004466;
+            /* Darker background color for contrast */
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center;
         }
 
+        /* Main container to hold content with some box shadow */
         .container {
-            max-width: 800px;
+            max-width: 900px;
+            background: #ffffff;
+            /* White background for the container */
+            margin: 0 auto;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
         }
 
+        /* Code blocks styling */
         .python-code {
-            background-color: #f4f4f4;
-            padding: 10px;
-            border: 1px solid #ccc;
+            background-color: #2b2b2b;
+            /* Dark background for code blocks */
+            color: #f8f8f2;
+            /* Light text for contrast */
+            padding: 15px;
+            border-radius: 4px;
             font-family: "Courier New", Courier, monospace;
+            overflow-x: auto;
+            margin-bottom: 1em;
+            line-height: 1.4;
         }
 
+        /* Inline <pre> tag general styling */
+        pre {
+            background-color: #f0f0f0;
+            /* Light gray background for standard pre tags */
+            padding: 10px;
+            border-radius: 3px;
+            line-height: 1.4;
+            overflow-x: auto;
+        }
+
+        /* Note box styling */
         .note {
-            background-color: #e7f3fe;
-            border-left: 4px solid #2196F3;
+            background-color: #fafbd0;
+            /* A soft yellow background for notes */
+            border-left: 4px solid #ffcc00;
             padding: 10px;
             margin-top: 20px;
+            border-radius: 4px;
         }
 
+        /* Footer styling */
         footer {
+            text-align: center;
             margin-top: 40px;
             font-size: 0.9em;
-            color: #666;
+            color: #666666;
+            padding: 20px;
         }
 
+        /* Details/summary styling for collapsible solutions */
         details {
             margin: 10px 0;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
         }
 
         details summary {
             cursor: pointer;
             font-weight: bold;
+            outline: none;
+        }
+
+        details[open] summary {
+            margin-bottom: 5px;
         }
     </style>
 </head>
