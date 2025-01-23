@@ -239,10 +239,10 @@
         <h3>16.1 Keyboard Shortcuts</h3>
         <p>Master these shortcuts for efficiency:</p>
         <ul>
-            <li><code>Shift + Enter:</code> Run the current cell and move to the next.</li>
-            <li><code>Ctrl + S:</code> Save your notebook.</li>
-            <li><code>Esc + A:</code> Insert a cell above.</li>
-            <li><code>Esc + B:</code> Insert a cell below.</li>
+            <li><code>Shift + Enter</code> Run the current cell and move to the next.</li>
+            <li><code>Ctrl + S</code> Save your notebook.</li>
+            <li><code>Esc + A</code> Insert a cell above.</li>
+            <li><code>Esc + B</code> Insert a cell below.</li>
         </ul>
 
         <h3>16.2 Magic Commands</h3>
@@ -262,28 +262,53 @@
         <pre>!pip install pygame numpy matplotlib</pre>
 
         <h3>17.2 Creating a Simple Game</h3>
-        <pre class="python-code">import pygame
-import sys
+        <pre class="python-code">
+import pygame  # Imports the Pygame library, which provides functionalities for 2D game development in Python
+import sys     # Imports the sys library for system-related functionalities (e.g., sys.exit())
 
 # Initialize pygame
-pygame.init()
+pygame.init()  
+# Initializes all Pygame modules. 
+# This should be called before using most Pygame functions.
 
 # Set up display
 screen = pygame.display.set_mode((600, 400))
+# Creates a game window of width 600 and height 400 pixels.
+# Returns a 'Surface' object where all drawing (images, shapes, text) will occur.
+
 pygame.display.set_caption("Simple AI Game")
+# Sets the title of the window to "Simple AI Game".
 
 # Game loop
 running = True
+# A Boolean variable that we will use to control when our game should stop.
+
 while running:
+    # The main game loop. This will continue to run until 'running' is set to False.
+
     for event in pygame.event.get():
+        # Retrieves and iterates through the list of events (e.g., key presses, mouse clicks).
+        
         if event.type == pygame.QUIT:
+            # If the user clicks the 'X' button on the window...
             running = False
+            # ...we set 'running' to False, which will break us out of the main loop.
 
     screen.fill((0, 0, 0))
-    pygame.display.flip()
+    # Fills the screen with black color (RGB: 0, 0, 0).
+    # This clears the previous frame's drawings.
 
+    pygame.display.flip()
+    # Updates the entire screen surface to display whatever we've drawn.
+
+# Once the loop is exited (running = False):
 pygame.quit()
-sys.exit()</pre>
+# Uninitializes all Pygame modules and frees up any system resources used.
+
+sys.exit()
+# Exits the program using the sys module (optional but often used to cleanly close the script).
+
+        </pre>
 
         <h3>17.3 Adding AI Logic</h3>
         <p>Implement AI decision-making with algorithms like minimax:</p>
