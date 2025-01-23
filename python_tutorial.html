@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Jupyter Notebook Tutorial</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc;
+            color: #333;
+        }
+
+        header {
+            background: #0056b3;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #0056b3;
+        }
+
+        pre {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 14px;
+        }
+
+        code {
+            color: #c586c0;
+            background: #1e1e1e;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+
+        .note {
+            background: #fdf4d3;
+            border-left: 6px solid #ffd700;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        a {
+            color: #0056b3;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #777;
+            padding: 10px;
+            background: #f3f4f6;
+        }
+
+        footer a {
+            color: #0056b3;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        Python Jupyter Notebook Extended Tutorial
+    </header>
+
+    <div class="container">
+        <h1>Introduction</h1>
+        <p>Jupyter Notebook is a powerful tool for interactive computing. It allows users to write and execute Python
+            code in a web-based interface, making it ideal for learning, teaching, and conducting exploratory data
+            analysis. In this extended tutorial, we will cover the essentials of Jupyter Notebook, focusing on how to
+            effectively write, execute, and manage Python code, as well as explore its advanced features.</p>
+
+        <h2>1. Launching Jupyter Notebook</h2>
+        <p>To start Jupyter Notebook, open your terminal or command prompt and type:</p>
+        <pre>jupyter notebook</pre>
+        <p>This command will launch the Jupyter Notebook server and open the interface in your default web browser. If
+            it doesn’t open automatically, you can manually navigate to <a href="http://localhost:8888"
+                target="_blank">http://localhost:8888</a>.</p>
+
+        <h2>2. Creating and Organizing Notebooks</h2>
+        <p>From the Jupyter Notebook dashboard, you can create a new notebook by clicking on <strong>New</strong> and
+            selecting <strong>Python 3</strong>. Use meaningful names for your notebooks to keep them organized. You can
+            rename a notebook by clicking on its title at the top of the page.</p>
+
+        <h2>3. Working with Cells</h2>
+        <h3>3.1 Types of Cells</h3>
+        <ul>
+            <li><strong>Code Cells:</strong> For writing and executing Python code. These cells display the output below
+                them after execution.</li>
+            <li><strong>Markdown Cells:</strong> For adding formatted text using Markdown syntax. These are useful for
+                adding explanations and documentation.</li>
+        </ul>
+        <h3>3.2 Running Cells</h3>
+        <p>To execute a code cell, press <code>Shift + Enter</code>. To run all cells in a notebook, go to
+            <strong>Cell</strong> in the menu bar and select <strong>Run All</strong>.</p>
+
+        <h2>4. Writing Python Code in Jupyter Notebook</h2>
+        <h3>4.1 Basic Python Code</h3>
+        <pre class="python-code"># Example: Simple calculation
+x = 10
+y = 20
+print("Sum:", x + y)</pre>
+
+        <h3>4.2 Using Libraries</h3>
+        <p>Import libraries as you would in a regular Python script. Example:</p>
+        <pre class="python-code">import numpy as np
+import matplotlib.pyplot as plt
+
+# Generate data
+data = np.linspace(0, 10, 100)
+plt.plot(data, np.sin(data))
+plt.show()</pre>
+
+        <h2>5. Markdown Syntax for Documentation</h2>
+        <p>Markdown cells allow you to add formatted text. Here are some common Markdown elements:</p>
+        <ul>
+            <li><strong>Headings:</strong> Use <code>#</code> for headings.
+                <pre># Heading 1
+## Heading 2
+### Heading 3</pre>
+            </li>
+            <li><strong>Lists:</strong> Create bullet or numbered lists.
+                <pre>- Bullet item 1
+- Bullet item 2
+
+1. Numbered item 1
+2. Numbered item 2</pre>
+            </li>
+            <li><strong>Inline Code:</strong> Use backticks for inline code (<code>`example`</code>).</li>
+            <li><strong>Links:</strong> <code>[text](URL)</code></li>
+        </ul>
+
+        <h2>6. Useful Jupyter Notebook Features</h2>
+        <h3>6.1 Magic Commands</h3>
+        <p>Magic commands enhance functionality in Jupyter Notebooks. Examples:</p>
+        <pre>%timeit 2 + 2   # Measure execution time of code
+!pip install pandas  # Run shell commands</pre>
+
+        <h3>6.2 Widgets</h3>
+        <p>Interactive widgets can make notebooks more dynamic. Example:</p>
+        <pre class="python-code">from ipywidgets import interact
+
+def greet(name):
+    return f"Hello, {name}!"
+
+interact(greet, name="World");</pre>
+
+        <h3>6.3 Exporting Notebooks</h3>
+        <p>Save your work in various formats by going to <strong>File</strong> &rarr; <strong>Download as</strong>.
+            Options include <code>.ipynb</code>, <code>.html</code>, and <code>.pdf</code>.</p>
+
+        <h2>7. Advanced Tips</h2>
+        <h3>7.1 Keyboard Shortcuts</h3>
+        <p>Boost productivity with shortcuts. Common ones include:</p>
+        <ul>
+            <li><code>Ctrl + Enter:</code> Run the current cell.</li>
+            <li><code>Shift + Enter:</code> Run the current cell and move to the next.</li>
+            <li><code>Esc + A:</code> Insert a cell above.</li>
+            <li><code>Esc + B:</code> Insert a cell below.</li>
+        </ul>
+
+        <h3>7.2 Version Control with Notebooks</h3>
+        <p>Use Git to track changes in notebooks. Convert them to a more Git-friendly format with
+            <code>nbconvert</code>.</p>
+
+        <h2>8. Practice Exercises</h2>
+        <p>Try these exercises to get hands-on experience:</p>
+        <ol>
+            <li>Create a notebook that calculates and plots the Fibonacci sequence.</li>
+            <li>Use a Markdown cell to document your code with headings and bullet points.</li>
+            <li>Generate a scatter plot using <code>matplotlib</code> and annotate points with labels.</li>
+        </ol>
+
+        <div class="note">
+            <p><strong>Note:</strong> If you encounter any issues, refer to the <a
+                    href="https://jupyter-notebook.readthedocs.io/" target="_blank">official Jupyter Notebook
+                    documentation</a>.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>University of North Dakota CSCI 384</p>
+    </footer>
+</body>
+
+</html>
