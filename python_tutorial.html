@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python Jupyter Lab Tutorial</title>
+    <title>Python Jupyter Lab Extended Tutorial</title>
     <style>
         body {
             font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -99,119 +99,145 @@
 
     <div class="container">
         <h1>Step 14: Transitioning to Jupyter Lab</h1>
-        <p>Congratulations! Your Jupyter Lab is now up and running. In this tutorial, we will cover step-by-step how to
-            effectively use Jupyter Lab for Python programming. Jupyter Lab is an advanced environment that provides a
-            more integrated experience than Jupyter Notebook, with additional features like file browsers, terminals,
-            and rich text editors.</p>
+        <p>Congratulations! Your Jupyter Lab is now up and running. In this extended tutorial, we will dive deeper into
+            its features, provide advanced tips, and explore how to use Jupyter Lab effectively for developing AI games.
+        </p>
 
-        <h2>15. Exploring the Jupyter Lab Interface</h2>
-        <p>When you first open Jupyter Lab, you’ll see:</p>
+        <h2>15. Essential Features of Jupyter Lab</h2>
+        <h3>15.1 Integrated File Browser</h3>
+        <p>The file browser in Jupyter Lab is a game-changer for managing your project files. Features include:</p>
         <ul>
-            <li><strong>File Browser:</strong> On the left, you can navigate your directories and manage files.</li>
-            <li><strong>Launcher:</strong> Provides options to create notebooks, terminals, and text editors.</li>
-            <li><strong>Tabs:</strong> Multiple files and activities can be open at once, like in an IDE.</li>
+            <li>Creating, renaming, and deleting files.</li>
+            <li>Dragging and dropping files for organization.</li>
+            <li>Launching terminals or notebooks directly from the browser.</li>
         </ul>
 
-        <h2>16. Writing and Executing Python Code</h2>
-        <h3>16.1 Creating a New Notebook</h3>
-        <p>Click on the <strong>Python 3 (ipykernel)</strong> option in the Launcher to create a new notebook. Name your
-            notebook by double-clicking its title.</p>
+        <h3>15.2 Multi-Tab Interface</h3>
+        <p>Jupyter Lab supports a multi-tab interface, allowing you to:</p>
+        <ul>
+            <li>Work on multiple notebooks side-by-side.</li>
+            <li>View documentation and code simultaneously.</li>
+            <li>Drag and arrange tabs for better workflow.</li>
+        </ul>
 
-        <h3>16.2 Writing Python Code</h3>
-        <p>Add Python code in the code cells. For example:</p>
-        <pre class="python-code"># Example: Print a message
-print("Hello, Jupyter Lab!")</pre>
-        <p>Press <code>Shift + Enter</code> to run the cell and view the output below it.</p>
+        <h3>15.3 Built-in Terminals</h3>
+        <p>Use the terminal to execute shell commands without leaving Jupyter Lab:</p>
+        <pre>!pip install scikit-learn</pre>
 
-        <h3>16.3 Using Multiple Cells</h3>
-        <p>Split your code into multiple cells for better organization. For example:</p>
-        <pre class="python-code"># Cell 1
-x = 10
-y = 20
+        <h3>15.4 Extension Manager</h3>
+        <p>Enhance functionality by installing extensions:</p>
+        <pre>jupyter labextension install @jupyterlab/git</pre>
+        <p>This example installs Git integration, enabling version control directly within Jupyter Lab.</p>
 
-# Cell 2
-print("Sum:", x + y)</pre>
-        <p>This approach allows you to execute and debug specific parts of your code independently.</p>
+        <h3>15.5 Rich Output Support</h3>
+        <p>Jupyter Lab supports rich output, including:</p>
+        <ul>
+            <li>Interactive plots with libraries like <code>matplotlib</code> and <code>plotly</code>.</li>
+            <li>Inline visualizations for machine learning models.</li>
+            <li>Embedded HTML, videos, and images.</li>
+        </ul>
 
-        <h2>17. Features of Jupyter Lab</h2>
-        <h3>17.1 File Browser</h3>
-        <p>Use the file browser to quickly navigate and manage your project files. Right-click for options like
-            renaming, deleting, or opening a terminal in the current directory.</p>
+        <h2>16. Tips and Tricks for Effective Usage</h2>
+        <h3>16.1 Keyboard Shortcuts</h3>
+        <p>Master these shortcuts for efficiency:</p>
+        <ul>
+            <li><code>Shift + Enter:</code> Run the current cell and move to the next.</li>
+            <li><code>Ctrl + S:</code> Save your notebook.</li>
+            <li><code>Esc + A:</code> Insert a cell above.</li>
+            <li><code>Esc + B:</code> Insert a cell below.</li>
+        </ul>
 
-        <h3>17.2 Terminals</h3>
-        <p>Launch terminals directly within Jupyter Lab to execute shell commands. For example:</p>
-        <pre>!pip install pandas</pre>
+        <h3>16.2 Magic Commands</h3>
+        <p>Use magic commands for additional functionality:</p>
+        <pre>%timeit -n 10 [x**2 for x in range(1000)]</pre>
+        <p>This measures the execution time of the code.</p>
 
-        <h3>17.3 Markdown Cells</h3>
-        <p>Document your code using Markdown cells. Example:</p>
-        <pre># Markdown Example
-## This is a heading
-- This is a list item
-[Click here](https://jupyter.org) for more info.</pre>
+        <h3>16.3 Debugging Tips</h3>
+        <ul>
+            <li>Use <code>print()</code> statements to inspect variables.</li>
+            <li>Leverage the built-in debugger by adding <code>%debug</code> after an exception.</li>
+        </ul>
 
-        <h3>17.4 Extensions</h3>
-        <p>Enhance Jupyter Lab’s capabilities with extensions. Install them using the following:</p>
-        <pre>jupyter labextension install @jupyterlab/toc</pre>
-        <p>This example adds a table of contents feature to your notebooks.</p>
+        <h2>17. Developing AI Games in Jupyter Lab</h2>
+        <h3>17.1 Setting Up the Environment</h3>
+        <p>Install the required libraries:</p>
+        <pre>!pip install pygame numpy matplotlib</pre>
 
-        <h2>18. Advanced Features</h2>
-        <h3>18.1 Interactive Visualizations</h3>
-        <p>Create interactive plots with <code>matplotlib</code> or <code>plotly</code>. Example:</p>
+        <h3>17.2 Creating a Simple Game</h3>
+        <pre class="python-code">import pygame
+import sys
+
+# Initialize pygame
+pygame.init()
+
+# Set up display
+screen = pygame.display.set_mode((600, 400))
+pygame.display.set_caption("Simple AI Game")
+
+# Game loop
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+    screen.fill((0, 0, 0))
+    pygame.display.flip()
+
+pygame.quit()
+sys.exit()</pre>
+
+        <h3>17.3 Adding AI Logic</h3>
+        <p>Implement AI decision-making with algorithms like minimax:</p>
+        <pre class="python-code">def minimax(state, depth, maximizing_player):
+    if depth == 0 or is_terminal(state):
+        return evaluate(state)
+
+    if maximizing_player:
+        max_eval = float('-inf')
+        for child in get_children(state):
+            eval = minimax(child, depth - 1, False)
+            max_eval = max(max_eval, eval)
+        return max_eval
+    else:
+        min_eval = float('inf')
+        for child in get_children(state):
+            eval = minimax(child, depth - 1, True)
+            min_eval = min(min_eval, eval)
+        return min_eval</pre>
+
+        <h3>17.4 Visualizing Game States</h3>
+        <p>Use <code>matplotlib</code> to visualize game states or AI decisions:</p>
         <pre class="python-code">import matplotlib.pyplot as plt
-import numpy as np
 
-x = np.linspace(0, 10, 100)
-y = np.sin(x)
+game_states = [1, 2, 3, 4, 5]
+performance = [10, 20, 15, 25, 30]
 
-plt.plot(x, y)
-plt.title("Sine Wave")
+plt.plot(game_states, performance)
+plt.title("AI Performance Over States")
+plt.xlabel("Game State")
+plt.ylabel("Performance")
 plt.show()</pre>
 
-        <h3>18.2 Debugger</h3>
-        <p>Use the built-in debugger to troubleshoot your code. Add breakpoints and inspect variable values
-            step-by-step.</p>
-
-        <h3>18.3 Collaboration</h3>
-        <p>Share notebooks using <code>nbviewer</code> or GitHub. Alternatively, use <code>JupyterHub</code> for team
-            projects.</p>
-
-        <h2>19. Developing AI Projects in Jupyter Lab</h2>
-        <p>Here’s how you can utilize Jupyter Lab for AI projects:</p>
+        <h2>18. Advanced Tips for AI Game Development</h2>
         <ul>
-            <li><strong>Data Preprocessing:</strong> Use <code>pandas</code> and <code>numpy</code> to clean and process
-                data.</li>
-            <li><strong>Model Training:</strong> Train machine learning models using libraries like
-                <code>scikit-learn</code> or <code>TensorFlow</code>.</li>
-            <li><strong>Visualization:</strong> Create detailed visualizations to analyze your results using
-                <code>seaborn</code> or <code>matplotlib</code>.</li>
+            <li><strong>Logging:</strong> Use the <code>logging</code> library to keep track of game events and AI
+                decisions.</li>
+            <li><strong>Visualization:</strong> Integrate libraries like <code>plotly</code> for interactive
+                visualizations.</li>
+            <li><strong>Optimization:</strong> Profile your code using <code>%prun</code> to identify bottlenecks.</li>
         </ul>
 
-        <h3>Example: Training a Linear Regression Model</h3>
-        <pre class="python-code">from sklearn.linear_model import LinearRegression
-import numpy as np
-
-# Data
-X = np.array([[1], [2], [3], [4]])
-y = np.array([2.2, 2.8, 3.6, 4.5])
-
-# Model
-model = LinearRegression()
-model.fit(X, y)
-
-# Prediction
-print("Predicted values:", model.predict([[5], [6]]))</pre>
-
-        <h2>20. Practice Exercises</h2>
+        <h2>19. Practice Exercises</h2>
         <ol>
-            <li>Create a notebook to preprocess a dataset using <code>pandas</code> and visualize it with
-                <code>seaborn</code>.</li>
-            <li>Implement a simple classification algorithm (e.g., Logistic Regression) and evaluate its accuracy.</li>
-            <li>Train a neural network using <code>TensorFlow</code> and visualize the training progress.</li>
+            <li>Build a basic Pong game using <code>pygame</code> and implement AI for one of the paddles.</li>
+            <li>Visualize the decision tree of a minimax algorithm using <code>networkx</code>.</li>
+            <li>Create a learning agent for a maze-solving game using Q-learning.</li>
         </ol>
 
         <div class="note">
             <p><strong>Tip:</strong> Explore the official <a href="https://jupyterlab.readthedocs.io/"
-                    target="_blank">Jupyter Lab documentation</a> for more features and extensions.</p>
+                    target="_blank">Jupyter Lab documentation</a> for more features and examples.</p>
         </div>
     </div>
 
