@@ -154,7 +154,7 @@
     </nav>
 
     <div class="container">
-        <h1>Python Jupyter Lab Extended Tutorial</h1>
+        <h1>Python Jupyter Lab Tutorial</h1>
 
         <!-- ********************************************
              ADDITIONAL INSTRUCTIONS ON HOW TO USE JUPYTER LAB
@@ -530,29 +530,61 @@ elif ai_y + paddle_height//2 > ball_y:
                         <li><strong>Create a Directed Graph:</strong>
                             <pre class="python-code">
 import networkx as nx
+# Imports NetworkX, a library for creating, manipulating, 
+# and visualizing complex networks/graphs.
+
 import matplotlib.pyplot as plt
+# Imports Matplotlib under the alias plt for data visualization.
 
 def build_tree(state, depth, graph, parent=None):
-    # Example function that builds a tree recursively
+    """
+    A recursive function to build a tree (or graph) structure 
+    by adding nodes (states) and edges between them.
+
+    Args:
+        state (object): A representation of the current node/state.
+        depth (int): How many levels deep we want to build the tree.
+        graph (nx.DiGraph): A directed graph instance from NetworkX.
+        parent (object, optional): The state/node that led to the current state. Defaults to None.
+    """
+
+    # If we've reached depth 0, we stop building further levels.
     if depth == 0:
         return
     
-    # Add this state as a node in the graph
+    # Add the current state as a node in the graph.
     graph.add_node(state)
+
+    # If there is a parent, create a directed edge from the parent to the current state.
     if parent:
         graph.add_edge(parent, state)
     
-    # For each child state, recursively build the tree
-    child_states = get_children(state)
-    for child in child_states:
-        build_tree(child, depth-1, graph, parent=state)
+    # Retrieve all possible child states from this state.
+    child_states = get_children(state)  
+    # get_children(state) is assumed to be a function that returns a list of next possible states.
 
+    # For each child of the current state, recursively call build_tree with a decreased depth.
+    for child in child_states:
+        build_tree(child, depth - 1, graph, parent=state)
+
+# ----------------
 # Example usage:
+# ----------------
 G = nx.DiGraph()
+# Creates an empty directed graph object from NetworkX.
+
 initial_state = "Root"
+# The root or initial node/state of our graph.
+
+# Build the tree up to 3 levels deep starting from 'Root'.
 build_tree(initial_state, 3, G)
+
+# Draw the graph with node labels. 
 nx.draw(G, with_labels=True)
+
+# Display the drawn graph in a separate window or inline (depending on your environment).
 plt.show()
+
                             </pre>
                         </li>
                         <li><strong>Draw the Graph:</strong> Use <code>nx.draw()</code> or other layout functions to
@@ -573,11 +605,25 @@ plt.show()
                         </li>
                         <li><strong>Initialize Q-Table:</strong>
                             <pre class="python-code">
-import numpy as np
+import numpy as np  
+# Imports NumPy, a library for array and matrix operations,
+# widely used for numerical computations and data manipulation.
 
 num_states = ...  # e.g., width * height of maze
+# Represents the total number of possible states in our environment.
+# For example, if the maze is 20 cells wide and 10 cells tall, then:
+#   num_states = 20 * 10 = 200
+
 num_actions = 4   # up, down, left, right
+# The number of possible actions the agent can take in each state.
+# Example: 4 directions in a typical 2D grid environment.
+
 Q = np.zeros((num_states, num_actions))
+# Initializes the Q-table as a 2D array (or matrix) of zeros.
+# The shape is (num_states, num_actions), meaning each row corresponds to a state,
+# and each column corresponds to an action.
+# Q[i][j] holds the Q-value for being in state i and taking action j.
+
                             </pre>
                         </li>
                         <li><strong>Choose Hyperparameters:</strong> e.g., <code>learning_rate</code>,
@@ -588,6 +634,17 @@ Q = np.zeros((num_states, num_actions))
 Q[state, action] = Q[state, action] + learning_rate * (
     reward + discount_factor * np.max(Q[new_state, :]) - Q[state, action]
 )
+# This line performs the core update step of the Q-learning algorithm:
+# 
+# 1.  Q[state, action] is the old Q-value for the current state-action pair.
+# 2.  learning_rate * (...) scales how much of the new information influences our old Q-value.
+# 3.  reward is the immediate reward received after taking 'action' in 'state'.
+# 4.  discount_factor * np.max(Q[new_state, :]) is the maximum possible future reward from the next state.
+# 5.  (reward + ... - Q[state, action]) calculates the difference between the new expected return and the old Q-value.
+# 
+# Overall, the update rule gradually shifts Q[state, action] towards the (reward + discounted best future Q-value).
+# This is how the agent learns an optimal policy over time.
+
                             </pre>
                         </li>
                         <li><strong>Train the Agent:</strong> Run multiple episodes of the maze solver, updating the
