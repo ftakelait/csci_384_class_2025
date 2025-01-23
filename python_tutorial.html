@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python Jupyter Notebook Tutorial</title>
+    <title>Python Jupyter Lab Tutorial</title>
     <style>
         body {
             font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -94,121 +94,124 @@
 
 <body>
     <header>
-        Python Jupyter Notebook Extended Tutorial
+        Python Jupyter Lab Extended Tutorial
     </header>
 
     <div class="container">
-        <h1>Introduction</h1>
-        <p>Jupyter Notebook is a powerful tool for interactive computing. It allows users to write and execute Python
-            code in a web-based interface, making it ideal for learning, teaching, and conducting exploratory data
-            analysis. In this extended tutorial, we will cover the essentials of Jupyter Notebook, focusing on how to
-            effectively write, execute, and manage Python code, as well as explore its advanced features.</p>
+        <h1>Step 14: Transitioning to Jupyter Lab</h1>
+        <p>Congratulations! Your Jupyter Lab is now up and running. In this tutorial, we will cover step-by-step how to
+            effectively use Jupyter Lab for Python programming. Jupyter Lab is an advanced environment that provides a
+            more integrated experience than Jupyter Notebook, with additional features like file browsers, terminals,
+            and rich text editors.</p>
 
-        <h2>1. Launching Jupyter Notebook</h2>
-        <p>To start Jupyter Notebook, open your terminal or command prompt and type:</p>
-        <pre>jupyter notebook</pre>
-        <p>This command will launch the Jupyter Notebook server and open the interface in your default web browser. If
-            it doesn’t open automatically, you can manually navigate to <a href="http://localhost:8888"
-                target="_blank">http://localhost:8888</a>.</p>
-
-        <h2>2. Creating and Organizing Notebooks</h2>
-        <p>From the Jupyter Notebook dashboard, you can create a new notebook by clicking on <strong>New</strong> and
-            selecting <strong>Python 3</strong>. Use meaningful names for your notebooks to keep them organized. You can
-            rename a notebook by clicking on its title at the top of the page.</p>
-
-        <h2>3. Working with Cells</h2>
-        <h3>3.1 Types of Cells</h3>
+        <h2>15. Exploring the Jupyter Lab Interface</h2>
+        <p>When you first open Jupyter Lab, you’ll see:</p>
         <ul>
-            <li><strong>Code Cells:</strong> For writing and executing Python code. These cells display the output below
-                them after execution.</li>
-            <li><strong>Markdown Cells:</strong> For adding formatted text using Markdown syntax. These are useful for
-                adding explanations and documentation.</li>
+            <li><strong>File Browser:</strong> On the left, you can navigate your directories and manage files.</li>
+            <li><strong>Launcher:</strong> Provides options to create notebooks, terminals, and text editors.</li>
+            <li><strong>Tabs:</strong> Multiple files and activities can be open at once, like in an IDE.</li>
         </ul>
-        <h3>3.2 Running Cells</h3>
-        <p>To execute a code cell, press <code>Shift + Enter</code>. To run all cells in a notebook, go to
-            <strong>Cell</strong> in the menu bar and select <strong>Run All</strong>.</p>
 
-        <h2>4. Writing Python Code in Jupyter Notebook</h2>
-        <h3>4.1 Basic Python Code</h3>
-        <pre class="python-code"># Example: Simple calculation
+        <h2>16. Writing and Executing Python Code</h2>
+        <h3>16.1 Creating a New Notebook</h3>
+        <p>Click on the <strong>Python 3 (ipykernel)</strong> option in the Launcher to create a new notebook. Name your
+            notebook by double-clicking its title.</p>
+
+        <h3>16.2 Writing Python Code</h3>
+        <p>Add Python code in the code cells. For example:</p>
+        <pre class="python-code"># Example: Print a message
+print("Hello, Jupyter Lab!")</pre>
+        <p>Press <code>Shift + Enter</code> to run the cell and view the output below it.</p>
+
+        <h3>16.3 Using Multiple Cells</h3>
+        <p>Split your code into multiple cells for better organization. For example:</p>
+        <pre class="python-code"># Cell 1
 x = 10
 y = 20
+
+# Cell 2
 print("Sum:", x + y)</pre>
+        <p>This approach allows you to execute and debug specific parts of your code independently.</p>
 
-        <h3>4.2 Using Libraries</h3>
-        <p>Import libraries as you would in a regular Python script. Example:</p>
-        <pre class="python-code">import numpy as np
-import matplotlib.pyplot as plt
+        <h2>17. Features of Jupyter Lab</h2>
+        <h3>17.1 File Browser</h3>
+        <p>Use the file browser to quickly navigate and manage your project files. Right-click for options like
+            renaming, deleting, or opening a terminal in the current directory.</p>
 
-# Generate data
-data = np.linspace(0, 10, 100)
-plt.plot(data, np.sin(data))
+        <h3>17.2 Terminals</h3>
+        <p>Launch terminals directly within Jupyter Lab to execute shell commands. For example:</p>
+        <pre>!pip install pandas</pre>
+
+        <h3>17.3 Markdown Cells</h3>
+        <p>Document your code using Markdown cells. Example:</p>
+        <pre># Markdown Example
+## This is a heading
+- This is a list item
+[Click here](https://jupyter.org) for more info.</pre>
+
+        <h3>17.4 Extensions</h3>
+        <p>Enhance Jupyter Lab’s capabilities with extensions. Install them using the following:</p>
+        <pre>jupyter labextension install @jupyterlab/toc</pre>
+        <p>This example adds a table of contents feature to your notebooks.</p>
+
+        <h2>18. Advanced Features</h2>
+        <h3>18.1 Interactive Visualizations</h3>
+        <p>Create interactive plots with <code>matplotlib</code> or <code>plotly</code>. Example:</p>
+        <pre class="python-code">import matplotlib.pyplot as plt
+import numpy as np
+
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+plt.plot(x, y)
+plt.title("Sine Wave")
 plt.show()</pre>
 
-        <h2>5. Markdown Syntax for Documentation</h2>
-        <p>Markdown cells allow you to add formatted text. Here are some common Markdown elements:</p>
-        <ul>
-            <li><strong>Headings:</strong> Use <code>#</code> for headings.
-                <pre># Heading 1
-## Heading 2
-### Heading 3</pre>
-            </li>
-            <li><strong>Lists:</strong> Create bullet or numbered lists.
-                <pre>- Bullet item 1
-- Bullet item 2
+        <h3>18.2 Debugger</h3>
+        <p>Use the built-in debugger to troubleshoot your code. Add breakpoints and inspect variable values
+            step-by-step.</p>
 
-1. Numbered item 1
-2. Numbered item 2</pre>
-            </li>
-            <li><strong>Inline Code:</strong> Use backticks for inline code (<code>`example`</code>).</li>
-            <li><strong>Links:</strong> <code>[text](URL)</code></li>
+        <h3>18.3 Collaboration</h3>
+        <p>Share notebooks using <code>nbviewer</code> or GitHub. Alternatively, use <code>JupyterHub</code> for team
+            projects.</p>
+
+        <h2>19. Developing AI Projects in Jupyter Lab</h2>
+        <p>Here’s how you can utilize Jupyter Lab for AI projects:</p>
+        <ul>
+            <li><strong>Data Preprocessing:</strong> Use <code>pandas</code> and <code>numpy</code> to clean and process
+                data.</li>
+            <li><strong>Model Training:</strong> Train machine learning models using libraries like
+                <code>scikit-learn</code> or <code>TensorFlow</code>.</li>
+            <li><strong>Visualization:</strong> Create detailed visualizations to analyze your results using
+                <code>seaborn</code> or <code>matplotlib</code>.</li>
         </ul>
 
-        <h2>6. Useful Jupyter Notebook Features</h2>
-        <h3>6.1 Magic Commands</h3>
-        <p>Magic commands enhance functionality in Jupyter Notebooks. Examples:</p>
-        <pre>%timeit 2 + 2   # Measure execution time of code
-!pip install pandas  # Run shell commands</pre>
+        <h3>Example: Training a Linear Regression Model</h3>
+        <pre class="python-code">from sklearn.linear_model import LinearRegression
+import numpy as np
 
-        <h3>6.2 Widgets</h3>
-        <p>Interactive widgets can make notebooks more dynamic. Example:</p>
-        <pre class="python-code">from ipywidgets import interact
+# Data
+X = np.array([[1], [2], [3], [4]])
+y = np.array([2.2, 2.8, 3.6, 4.5])
 
-def greet(name):
-    return f"Hello, {name}!"
+# Model
+model = LinearRegression()
+model.fit(X, y)
 
-interact(greet, name="World");</pre>
+# Prediction
+print("Predicted values:", model.predict([[5], [6]]))</pre>
 
-        <h3>6.3 Exporting Notebooks</h3>
-        <p>Save your work in various formats by going to <strong>File</strong> &rarr; <strong>Download as</strong>.
-            Options include <code>.ipynb</code>, <code>.html</code>, and <code>.pdf</code>.</p>
-
-        <h2>7. Advanced Tips</h2>
-        <h3>7.1 Keyboard Shortcuts</h3>
-        <p>Boost productivity with shortcuts. Common ones include:</p>
-        <ul>
-            <li><code>Ctrl + Enter:</code> Run the current cell.</li>
-            <li><code>Shift + Enter:</code> Run the current cell and move to the next.</li>
-            <li><code>Esc + A:</code> Insert a cell above.</li>
-            <li><code>Esc + B:</code> Insert a cell below.</li>
-        </ul>
-
-        <h3>7.2 Version Control with Notebooks</h3>
-        <p>Use Git to track changes in notebooks. Convert them to a more Git-friendly format with
-            <code>nbconvert</code>.</p>
-
-        <h2>8. Practice Exercises</h2>
-        <p>Try these exercises to get hands-on experience:</p>
+        <h2>20. Practice Exercises</h2>
         <ol>
-            <li>Create a notebook that calculates and plots the Fibonacci sequence.</li>
-            <li>Use a Markdown cell to document your code with headings and bullet points.</li>
-            <li>Generate a scatter plot using <code>matplotlib</code> and annotate points with labels.</li>
+            <li>Create a notebook to preprocess a dataset using <code>pandas</code> and visualize it with
+                <code>seaborn</code>.</li>
+            <li>Implement a simple classification algorithm (e.g., Logistic Regression) and evaluate its accuracy.</li>
+            <li>Train a neural network using <code>TensorFlow</code> and visualize the training progress.</li>
         </ol>
 
         <div class="note">
-            <p><strong>Note:</strong> If you encounter any issues, refer to the <a
-                    href="https://jupyter-notebook.readthedocs.io/" target="_blank">official Jupyter Notebook
-                    documentation</a>.</p>
+            <p><strong>Tip:</strong> Explore the official <a href="https://jupyterlab.readthedocs.io/"
+                    target="_blank">Jupyter Lab documentation</a> for more features and extensions.</p>
         </div>
     </div>
 
