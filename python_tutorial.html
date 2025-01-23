@@ -287,35 +287,97 @@ sys.exit()</pre>
 
         <h3>17.3 Adding AI Logic</h3>
         <p>Implement AI decision-making with algorithms like minimax:</p>
-        <pre class="python-code">def minimax(state, depth, maximizing_player):
+        <pre class="python-code">
+def minimax(state, depth, maximizing_player):
+    """
+    A recursive minimax function that explores game states up to a certain depth 
+    and returns the best possible score for either the maximizing or minimizing player.
+
+    Args:
+        state (object): The current game state. This could be a board configuration, 
+                        a set of moves, or any structure representing the state of the game.
+        depth (int): How many levels deep to explore in the game tree. 
+                     When depth is 0, or the state is a terminal state, the recursion ends.
+        maximizing_player (bool): A flag indicating if we are currently optimizing for 
+                                  the "maximizing player" or the "minimizing player".
+
+    Returns:
+        float: The best evaluated score for the current branch of the game tree.
+    """
+
     if depth == 0 or is_terminal(state):
+        # Base condition of the recursion:
+        # 1) If depth == 0, we've reached the maximum depth to explore.
+        # 2) If the state is terminal (e.g., a win/loss/draw in a game), no further exploration is needed.
         return evaluate(state)
+        # evaluate(state) is presumably a function that scores the state. 
+        # Example: In a game of tic-tac-toe, it might return +1 if X wins, -1 if O wins, 0 if it's a draw.
 
     if maximizing_player:
-        max_eval = float('-inf')
+        # Branch of logic for the maximizing player:
+        # We assume this player wants to maximize the score.
+        max_eval = float('-inf')  
+        # Initialize best evaluation to negative infinity, so any real value will be higher.
+
         for child in get_children(state):
+            # Iterate over each possible next state (child) of the current state.
             eval = minimax(child, depth - 1, False)
+            # Recursively call minimax on the child, decreasing depth by 1.
+            # Now set maximizing_player to False, because the next level would be the minimizing player's turn.
             max_eval = max(max_eval, eval)
+            # Update the best (maximum) score if the current child's evaluation is higher.
+        
         return max_eval
+        # Return the best score found for the maximizing player.
+
     else:
+        # Branch of logic for the minimizing player:
+        # We assume this player wants to minimize the score.
         min_eval = float('inf')
+        # Initialize best evaluation to positive infinity, so any real value will be lower.
+
         for child in get_children(state):
+            # Iterate over each possible next state (child) of the current state.
             eval = minimax(child, depth - 1, True)
+            # Recursively call minimax on the child, decreasing depth by 1.
+            # Now set maximizing_player to True, because the next level is the maximizing player's turn.
             min_eval = min(min_eval, eval)
-        return min_eval</pre>
+            # Update the best (minimum) score if the current child's evaluation is lower.
+        
+        return min_eval
+        # Return the best score found for the minimizing player.
+
+        </pre>
 
         <h3>17.4 Visualizing Game States</h3>
         <p>Use <code>matplotlib</code> to visualize game states or AI decisions:</p>
-        <pre class="python-code">import matplotlib.pyplot as plt
+        <pre class="python-code">import matplotlib.pyplot as plt  
+# Imports the plotting library "matplotlib" and names it "plt"
+# This library is commonly used for creating a variety of static, animated, and interactive visualizations in Python.
 
 game_states = [1, 2, 3, 4, 5]
+# A list representing some discrete game states or levels.
+# Example: These could be rounds in a game or steps in a simulation.
+
 performance = [10, 20, 15, 25, 30]
+# A list representing the AI's performance metrics (e.g., scores) at each corresponding game state.
+# performance[0] = 10 for game_states[0] = 1, performance[1] = 20 for game_states[1] = 2, etc.
 
 plt.plot(game_states, performance)
+# Creates a line plot with 'game_states' on the x-axis and 'performance' on the y-axis.
+# plt.plot(x_values, y_values) is the typical syntax.
+
 plt.title("AI Performance Over States")
+# Sets the title of the plot to "AI Performance Over States".
+
 plt.xlabel("Game State")
+# Labels the x-axis as "Game State".
+
 plt.ylabel("Performance")
-plt.show()</pre>
+# Labels the y-axis as "Performance".
+
+plt.show()
+# Renders the current figure/plot and displays it in a separate window or inline (depending on your environment).</pre>
 
         <h2>18. Advanced Tips for AI Game Development</h2>
         <ul>
